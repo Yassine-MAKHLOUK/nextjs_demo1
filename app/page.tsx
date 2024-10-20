@@ -1,9 +1,11 @@
 'use client'
 
+import { EmblaOptionsType } from "embla-carousel";
 import Button from "./components/common/button";
 import Block1 from "./components/layout/block1";
 import Block2 from "./components/layout/block2";
-
+import EmblaCarousel from "./components/common/EmblaCarousel/EmblaCarousel";
+import "embla-carousel-react/package.json"
 
 export default function Home() {
   const block1Content = {
@@ -16,6 +18,12 @@ export default function Home() {
     text: "Lorem ipsum dolor sit amet. Qui dolor quis sed consequatur vero aut veniam velit aut doloribus repudiandae id voluptatem optio sed quasi molestiae. Et tempore magni ut sunt expedita ut minima esse est omnis temporibus in neque dolorem aut suscipit suscipit ex corrupti consectetur. Est nemo repellat aut iusto natus id temporibus doloremque est dolorem assumenda sit laboriosam saepe quo ducimus dicta! Qui cupiditate facilis ab expedita maxime non praesentium ipsa qui autem vero?             Et tenetur ipsa et soluta sunt sit inventore iure aut corrupti dolores. Ut voluptatem distinctio et quos nulla aut iusto excepturi.",
     blockPic: "/assets/images/roronoa-zoro.jpg"
   }
+
+  
+const OPTIONS: EmblaOptionsType = { loop: true }
+const SLIDE_COUNT = 5
+const SLIDES = Array.from(Array(SLIDE_COUNT).keys())
+
   
   return (
     <div className="">
@@ -26,6 +34,9 @@ export default function Home() {
           ;
         } }        />
       <Block2 title={block2Content.title} text={block2Content.text} blockPic={block2Content.blockPic} />
+      <EmblaCarousel slides={SLIDES} options={OPTIONS} />
+
+    
     </div>
         
 

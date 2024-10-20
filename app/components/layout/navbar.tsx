@@ -14,13 +14,15 @@ export interface NavbarProps {
 const Navbar :FC<NavbarProps> = ({linkprops}) => (
     <nav>
         <div className="navlinks">
-        {linkprops.map((link, index) => (
-          <li key={index}>
-            <Link href={link.href} className={` ${link.class_name}`}>
-              {link.name}
-            </Link>
-          </li>
-        ))}
+          <ul className="hidden md:flex md:gap-x-6">
+          {linkprops.map((link, index) => (
+            <li key={index}>
+              <Link href={link.href} className={` ${link.class_name}`}>
+                {link.name}
+              </Link>
+            </li>
+          ))}
+          </ul>
         </div>
     </nav>
 )
