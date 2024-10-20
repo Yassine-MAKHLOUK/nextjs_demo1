@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./styles/globals.css";
+import { NavLinkProps } from "./components/layout/navbar";
+import Header from "./components/layout/header";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -8,14 +10,29 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({
+  
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const links: NavLinkProps[] = [
+    { name: 'Home', href: '/' },
+    { name: 'About', href: '/about'  },
+    { name: 'Projects', href: '/projects'  },
+    { name: 'Gallery', href: '/gallery'  },
+    { name: 'Blog', href: '/blog'  },
+    { name: 'Contact', href: '/contact'  },
+  ];
   return (
     <html lang="en">
       <body>
-        {children}
+        <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
+          <Header navLinks={links}></Header>
+          <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
+            {children}
+          </main>
+          <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center"></footer>
+        </div>
       </body>
     </html>
   );

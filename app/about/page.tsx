@@ -1,9 +1,9 @@
 import { FC } from "react";
 
-const Home : FC = () => (
+const About : FC = () => (
     <section className="home_block">
-        <h1>Welcome</h1>
+        <h1>About</h1>
     </section>
 )
 
-export default Home;
+export default About;
